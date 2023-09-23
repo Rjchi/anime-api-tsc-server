@@ -1,0 +1,40 @@
+{
+  "name": "anime-api-tsc",
+  "version": "1.0.0",
+  "description": "Api que raspa datos de varios sitios web",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon dist/index.js"
+  },
+  "keywords": [
+    "node-js",
+    "express-js",
+    "typescript",
+    "cors",
+    "cheerio",
+    "dotenv",
+    "web-scraping",
+    "axios",
+    "slug",
+    "nodemon"
+  ],
+  "author": "Rjchi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.5.0",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "slug": "^8.2.3",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/connect": "^3.4.36",
+    "@types/cors": "^2.8.14",
+    "@types/express": "^4.17.18",
+    "@types/slug": "^5.0.4",
+    "nodemon": "^3.0.1"
+  }
+}
