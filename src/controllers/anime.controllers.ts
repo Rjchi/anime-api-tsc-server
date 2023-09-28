@@ -26,7 +26,9 @@ const getAnimes = async (req: express.Request, res: express.Response) => {
 
       animes.push({
         name: sanitizedName,
-        img: $(el).find("div > a > div.limit img").attr("src"),
+        img: $(el).find("div > a > div.limit img").attr("src")
+          ? $(el).find("div > a > div.limit img").attr("src")
+          : "https://freerangestock.com/sample/120162/sun-over-mountains-vector-graphic.jpg",
         dubbing: $(el).find("div > a > div.limit > div.bt > span.sb").text(),
       });
     });
@@ -94,6 +96,8 @@ const animeDetails = async (req: express.Request, res: express.Response) => {
     $("div.infox").each((i, el) => {
       const genres: any[] = [];
       const information: any[] = [];
+      const episodes: any[] = [];
+
       $(el)
         .find("div.ninfo > div.info-content > div.genxed > a")
         .each((item, genre) => {
@@ -108,14 +112,28 @@ const animeDetails = async (req: express.Request, res: express.Response) => {
 
       details.push({
         name: $(el).find("h1").text(),
+        image: "",
         genres: genres,
         information: information,
         description: $(el)
           .find("div.ninfo > div.info-content > div.entry-content > p")
           .first()
           .text(),
+        episodes: episodes,
       });
     });
+
+    $("div div.num")
+      .find("li > a > div.epl-num")
+      .each((item, element) => {
+        details[0].episodes.push($(element).text());
+      });
+
+    details[0].image = $("div.bigcontent div.thumbook")
+      .find("div > img")
+      .attr("src")
+      ? $("div.bigcontent div.thumbook").find("div > img").attr("src")
+      : "https://freerangestock.com/sample/120162/sun-over-mountains-vector-graphic.jpg";
 
     if (details.length !== 0) {
       return res.status(200).json(details);
@@ -130,7 +148,7 @@ const animeDetails = async (req: express.Request, res: express.Response) => {
 const controllers = {
   getAnimes,
   seeAnime,
-  animeDetails
+  animeDetails,
 };
 
 export default controllers;
