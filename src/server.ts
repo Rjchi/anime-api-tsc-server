@@ -28,12 +28,15 @@ class Server {
   }
 
   routes() {
+    this.app.get("/", (req: express.Request, res: express.Response) => {
+      res.send("API");
+    });
     this.app.use(animeRoutes);
   }
 
   middlewares() {
     this.app.use(express.json());
-    this.app.use(cors())
+    this.app.use(cors());
   }
 
   // stitics() {
