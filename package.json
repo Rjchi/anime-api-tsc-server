@@ -4,7 +4,8 @@
   "description": "Api que raspa datos de varios sitios web",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "build": "tsc"
   },
   "keywords": [
     "node-js",
