@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon dist/index.js",
-    "build": "npm install && tsc --watch"
+    "build": "npm install && tsc"
   },
   "keywords": [
     "node-js",
