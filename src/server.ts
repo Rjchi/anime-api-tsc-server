@@ -1,6 +1,7 @@
 import cors from "cors";
 import express from "express";
 import { PORT } from "./config";
+import { join } from "path";
 
 /**---------
  * | Routes
@@ -17,6 +18,7 @@ class Server {
     this.listen();
     this.middlewares();
     this.routes();
+    this.stitics();
   }
 
   listen() {
@@ -32,6 +34,10 @@ class Server {
   middlewares() {
     this.app.use(express.json());
     this.app.use(cors())
+  }
+
+  stitics() {
+    this.app.use(express.static(join(__dirname, "../client/dist")));
   }
 }
 
