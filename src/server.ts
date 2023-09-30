@@ -18,7 +18,7 @@ class Server {
     this.listen();
     this.middlewares();
     this.routes();
-    this.stitics();
+    // this.stitics();
   }
 
   listen() {
@@ -36,9 +36,9 @@ class Server {
     this.app.use(cors())
   }
 
-  stitics() {
-    this.app.use(express.static(join(__dirname, "../client/dist")));
-  }
+  // stitics() {
+  //   this.app.use(express.static(join(__dirname, "./dist")));
+  // }
 }
 
 export default Server;
